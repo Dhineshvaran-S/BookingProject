@@ -1,0 +1,904 @@
+
+
+  <!-- Main content area -->
+    
+  <div class="main-content" [class.expanded]="!sidebarVisible">
+    <!-- Explore content: display cards only if 'explore' is selected -->
+    <div *ngIf="selectedOption === 'explore'" class="card-container">
+      <div *ngFor="let card of cards" class="card" [ngClass]="{'expanded': card.showDetails}">
+        <!-- Two-column layout initially -->
+        <div class="card-content">
+          <div class="card-main-image">
+            <img [src]="card.mainImage" alt="Main Image">
+          </div>
+          <div class="card-description">
+            <h2>{{ card.title }}</h2>
+            <p>{{ card.description }}</p>
+            <p>{{ card.description }}</p>
+            <p>{{ card.description }}</p>
+            <button (click)="toggleDetails(card)">
+              {{ card.showDetails ? 'Hide Details' : 'Show Details' }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Expanded layout with slider and "Book Now" button -->
+        <div class="card-details" *ngIf="card.showDetails">
+          <div class="card-images">
+            <div class="slider-wrapper" [ngStyle]="{'transform': 'translateX(' + card.currentSlide * -100 + '%)'}">
+              <div class="image" *ngFor="let image of card.images">
+                <img [src]="image" alt="Image">
+              </div>
+            </div>
+            <div class="slider-controls">
+              <button (click)="prevSlide(card)">‹</button>
+              <button (click)="nextSlide(card)">›</button>
+            </div>
+          </div>
+          <div class="book-now-container">
+            <button (click)="bookNow(card)">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buy content: Placeholder or other content -->
+    <div *ngIf="selectedOption === 'buy'">
+      <h2>Buy Section</h2>
+      <p>Here you can buy items...</p>
+    </div>
+
+    <!-- History content: Placeholder or other content -->
+    <div *ngIf="selectedOption === 'history'">
+      <h2>History Section</h2>
+      <p>Your history of purchases...</p>
+    </div>
+  </div>
+</div>
+
+
+CSS 
+
+
+
+
+/* Sidebar styles */
+ .sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  display: flex;  
+  justify-content: center; 
+  align-items: center;  
+  transition: transform 0.3s ease;
+} 
+
+.sidebar.hidden {
+  transform: translateX(-100%); /* Hide the sidebar */
+}  
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%; 
+  text-align: center;  
+}
+
+.sidebar ul li {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar ul li.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar ul li:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Main content styles */
+/* .main-content {
+  margin-left: 220px; 
+  padding: 20px;
+  width: calc(100% - 220px);
+} */
+.main-content {
+  margin-left: 220px; /* Adjust margin when sidebar is visible */
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+  margin-left: 0; /* Remove margin when sidebar is hidden */
+}
+
+h2 {
+  margin-top: 0;
+}
+/* Toggle button */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Card container */
+.card-container {
+  display: block; 
+  padding: 40px; 
+}
+
+/* Card styles */
+.card {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Card content layout */
+.card-content {
+  display: flex;
+  flex-direction: row; /* Two-column layout */
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+/* Card main image */
+.card-main-image {
+  padding-right: 20px;
+
+  width: 300px; /* Fixed width for the image */
+  height: auto;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.card-main-image img {
+  width: 100%; /* Ensure the image scales properly within the container */
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Card description styles */
+.card-description {
+  padding-top: 20px; /* Space between image and description */
+   /* Space between image and description */
+  flex: 1; /* Allow description to take up remaining space */
+}
+
+.card-description h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.card-description p {
+  color: #666;
+}
+
+.card-description button {
+  margin-top: 10px; 
+}
+
+/* Expanded card styles */
+.card.expanded {
+  padding: 20px;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+  display: flex; /* Flexbox for expanded layout */
+  flex-direction: row; /* Arrange content in a row */
+}
+
+/* Expanded content - main image and description layout */
+.card.expanded .card-content {
+  flex-direction: column; /* Stack main image and description vertically */
+  width: 50%; /* Main content width */
+}
+
+.card.expanded .card-details {
+  width: 50%; /* Sidebar width */
+  padding-left: 20px; /* Space between main content and details */
+  padding-right: 20px; /* Space between main content and details */
+}
+
+/* Slider styles */
+.card-images {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.card-images img {
+  width: 100%; 
+  height: auto;
+  border-radius: 4px; 
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.image {
+  min-width: 100%; /* Each image takes full width of the slider */
+}
+
+.slider-controls {
+  position: absolute;
+  top: 40%; /* Center the controls vertically */
+  
+
+  right:70px;
+  transform: translateY(-50%);
+  width: 40%; /* Make sure controls cover the full width of the image */
+  display: flex;
+  justify-content: space-between; /* Space the buttons evenly */
+  padding: 0 10px; /* Add some padding to prevent the buttons from touching the image edges */
+  box-sizing: border-box; /* Make sure padding is included in the width calculation */
+}
+.slider-controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Book Now button styles */
+.book-now-container {
+  margin-top: 30px; 
+  
+  /* Space between slider and button */
+  display: flex;
+  justify-content: center; /* Right alignment */
+}
+
+.book-now-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+/* For nav Search */
+
+/* Container for search and toggle */
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Increase space between elements */
+  padding: 20px;
+}
+
+/* Style for the search input */
+.search-input {
+  width: 250px; /* Larger input size */
+  padding: 12px 20px;
+  border-radius: 30px; /* Rounded corners */
+  border: 2px solid #1e90ff; /* Blue border */
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3); /* Blue glow effect */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+  border-color: #ffc107; /* Yellow border on focus */
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.7); /* Yellow glow effect */
+}
+
+/* Style for the search button */
+.search-btn {
+  background-color: #1e90ff; /* Blue button */
+  border: none;
+  border-radius: 30px;
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3); /* Subtle blue glow */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.search-btn:hover {
+  background-color: #ffc107; /* Change to yellow on hover */
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.7); /* Yellow glow on hover */
+}
+
+/* Style for the toggle button */
+.toggle-btn {
+  background-color: #1e90ff; /* Blue button */
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 10px; /* Reduced padding */
+  cursor: pointer;
+  font-size: 18px; /* Smaller icon size */
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3); /* Blue glow effect */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #ffc107; /* Yellow on hover */
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.7); /* Yellow glow on hover */
+}
+
+
+
+ copy this card styles alone to this project <div *ngIf="loading" class="text-center">Loading...</div>
+<div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+<div *ngIf="!loading && !error" class="container">
+  <div class="row">
+    <div *ngFor="let room of rooms" class="col-md-4 mb-4">
+      <div class="card">
+        <img [src]="room.imagePath" class="card-img-top" alt="Room image">
+        <div class="card-body">
+          <div class="card-header-content">
+            <span class="badge card-price">{{ room.price }}</span>
+            <span class="price-label">Per Night</span>
+          </div>
+          <p class="card-text">More details about the room can go here.</p>
+          <!-- Trigger modal on button click -->
+          <button 
+            (click)="openModal(modalContent, room)" 
+            class="btn btn-primary btn-block" 
+            [disabled]="room.isBooked">
+            {{ room.isBooked ? 'Booked' : 'View Details' }}
+          </button>
+        </div>
+        <div class="card-footer">
+          <small class="text-white">{{ room.roomType }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Room Details Modal -->
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <div class="marquee-container">
+      <marquee>BOOK NOW !!! ENJOY THE MOON!!!</marquee>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+          <img [src]="selectedRoom?.imagePath" class="img-fluid" alt="Room image">
+        </div>
+        <div class="col-md-4">
+          <div class="details-box">
+            <p><strong>Price:</strong> {{ selectedRoom?.price }} per night</p>
+            <p><strong>Type:</strong> {{ selectedRoom?.roomType }}</p>
+            <p><strong>Description:</strong> {{ selectedRoom?.description }}</p>
+            <p><strong>Location:</strong> {{ selectedRoom?.location }}</p>
+            <p><strong>Amenities:</strong> {{ selectedRoom?.amenities }}</p>
+            <p><strong>Rating:</strong> {{ selectedRoom?.rating }}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="price-details">
+            <h4 class="text-center">{{ selectedRoom?.price }}</h4>
+            <p class="text-center">Per Night</p>
+            <button 
+              type="button" 
+              class="btn btn-success btn-block" 
+              (click)="openPaymentModal()" 
+              [disabled]="selectedRoom?.isBooked">
+              {{ selectedRoom?.isBooked ? 'Booked' : 'Book Now' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<!-- Payment Modal -->
+<ng-template #paymentModalTemplate let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Payment Details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="processPayment()" [formGroup]="paymentForm">
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" class="form-control" [value]="selectedRoom?.price" disabled>
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" class="form-control" formControlName="cardNumber">
+        <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched" class="text-danger">
+          Card number is required and must be 16 digits.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">Expiry Date</label>
+        <input type="text" id="expiryDate" class="form-control" formControlName="expiryDate">
+        <div *ngIf="paymentForm.get('expiryDate')?.invalid && paymentForm.get('expiryDate')?.touched" class="text-danger">
+          Expiry date is required and must be in MM/YY format.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" class="form-control" formControlName="cvv">
+        <div *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched" class="text-danger">
+          CVV is required and must be 3 digits.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="paymentForm.invalid">Pay</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.hide()">Close</button>
+  </div>
+</ng-template>
+
+
+
+/ Sidebar styles /
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  display: flex;  
+  justify-content: center; 
+  align-items: center;  
+  transition: transform 0.3s ease;
+} 
+
+.sidebar.hidden {
+  transform: translateX(-100%); / Hide the sidebar /
+}  
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%; 
+  text-align: center;  
+}
+
+.sidebar ul li {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar ul li.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar ul li:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/ Main content styles /
+/* .main-content {
+  margin-left: 220px; 
+  padding: 20px;
+  width: calc(100% - 220px);
+} */
+.main-content {
+  margin-left: 220px; / Adjust margin when sidebar is visible /
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+  margin-left: 0; / Remove margin when sidebar is hidden /
+}
+
+h2 {
+  margin-top: 0;
+}
+/ Toggle button /
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; / Ensure it's above other elements /
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+/ Card container /
+.card-container {
+  display: block; 
+  padding: 40px; 
+}
+
+/ Card styles /
+.card {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/ Card content layout /
+.card-content {
+  display: flex;
+  flex-direction: row; / Two-column layout /
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+/ Card main image /
+.card-main-image {
+  padding-right: 20px;
+
+  width: 300px; / Fixed width for the image /
+  height: auto;
+  overflow: hidden;
+  flex-shrink: 0; / Prevent the image from shrinking /
+}
+
+.card-main-image img {
+  width: 100%; / Ensure the image scales properly within the container /
+  height: auto;
+  border-radius: 4px;
+}
+
+/ Card description styles /
+.card-description {
+  padding-top: 20px; / Space between image and description /
+   / Space between image and description /
+  flex: 1; / Allow description to take up remaining space /
+}
+
+.card-description h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.card-description p {
+  color: #666;
+}
+
+.card-description button {
+  margin-top: 10px; 
+}
+
+/ Expanded card styles /
+.card.expanded {
+  padding: 20px;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+  display: flex; / Flexbox for expanded layout /
+  flex-direction: row; / Arrange content in a row /
+}
+
+/ Expanded content - main image and description layout /
+.card.expanded .card-content {
+  flex-direction: column; / Stack main image and description vertically /
+  width: 50%; / Main content width /
+}
+
+.card.expanded .card-details {
+  width: 50%; / Sidebar width /
+  padding-left: 20px; / Space between main content and details /
+  padding-right: 20px; / Space between main content and details /
+}
+
+/ Slider styles /
+.card-images {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.card-images img {
+  width: 100%; 
+  height: auto;
+  border-radius: 4px; 
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.image {
+  min-width: 100%; / Each image takes full width of the slider /
+}
+
+.slider-controls {
+  position: absolute;
+  top: 40%; / Center the controls vertically /
+  
+
+  right:70px;
+  transform: translateY(-50%);
+  width: 40%; / Make sure controls cover the full width of the image /
+  display: flex;
+  justify-content: space-between; / Space the buttons evenly /
+  padding: 0 10px; / Add some padding to prevent the buttons from touching the image edges /
+  box-sizing: border-box; / Make sure padding is included in the width calculation /
+}
+.slider-controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+button:focus {
+  outline: none;
+}
+
+/ Book Now button styles /
+.book-now-container {
+  margin-top: 30px; 
+  
+  / Space between slider and button /
+  display: flex;
+  justify-content: center; / Right alignment /
+}
+
+.book-now-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+/ For nav Search /
+
+/ Container for search and toggle /
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 20px; / Increase space between elements /
+  padding: 20px;
+}
+
+/ Style for the search input /
+.search-input {
+  width: 250px; / Larger input size /
+  padding: 12px 20px;
+  border-radius: 30px; / Rounded corners /
+  border: 2px solid #1e90ff; / Blue border /
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3); / Blue glow effect /
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+  border-color: #ffc107; / Yellow border on focus /
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.7); / Yellow glow effect /
+}
+
+/ Style for the search button /
+.search-btn {
+  background-color: #1e90ff; / Blue button /
+  border: none;
+  border-radius: 30px;
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3); / Subtle blue glow /
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.search-btn:hover {
+  background-color: #ffc107; / Change to yellow on hover /
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.7); / Yellow glow on hover /
+}
+
+/ Style for the toggle button /
+.toggle-btn {
+  background-color: #1e90ff; / Blue button /
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 10px; / Reduced padding /
+  cursor: pointer;
+  font-size: 18px; / Smaller icon size /
+  box-shadow: 0 0 10px rgba(30, 144, 255, 0.3); / Blue glow effect /
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #ffc107; / Yellow on hover /
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.7); / Yellow glow on hover /
+}
+
+
+
+/ STYLE FOR SORT MIN MAX  /
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; / Adds space between the elements /
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+.min-input, .max-input {
+  width: 80px;
+  margin-right: 10px; / Space between the inputs /
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.apply-btn {
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}  import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+@Component({
+  selector: 'app-user-rooms',
+  templateUrl: './user-rooms.component.html',
+  styleUrls: ['./user-rooms.component.css']
+})
+export class UserRoomsComponent implements OnInit {
+  
+  rooms: any[] = [];
+  loading: boolean = true;
+  error: string | null = null;
+  selectedRoom: any = null;
+  paymentForm: FormGroup;
+  modalRef?: BsModalRef; // For the Room Details Modal
+  paymentModalRef?: BsModalRef; // For the Payment Modal
+
+  @ViewChild('paymentModalTemplate', { static: false }) paymentModalTemplate?: TemplateRef<any>;
+
+  constructor(private http: HttpClient, private modalService: BsModalService, private fb: FormBuilder) {
+    this.paymentForm = this.fb.group({
+      cardNumber: ['', [Validators.required, Validators.pattern(/^\d{16}$/)]],
+      expiryDate: ['', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]],
+      cvv: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]]
+    });
+  }
+
+  ngOnInit(): void {
+    this.http.get<any[]>('http://localhost:5046/api/Room/GetRooms').subscribe({
+      next: (data) => {
+        this.rooms = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Failed to load rooms';
+        this.loading = false;
+      }
+    });
+  }
+
+  openModal(template: TemplateRef<any>, room: any): void {
+    this.selectedRoom = room;
+    this.modalRef = this.modalService.show(template);
+  }
+
+  openPaymentModal(): void {
+    if (this.paymentModalTemplate) {
+      this.paymentModalRef = this.modalService.show(this.paymentModalTemplate);
+    } else {
+      console.error('Payment modal template is not defined');
+    }
+  }
+
+  processPayment(): void {
+    if (this.paymentForm.invalid) {
+      // Mark all fields as touched to show validation errors
+      this.paymentForm.markAllAsTouched();
+      return;
+    }
+
+    const payload = {
+      amount: this.selectedRoom?.price,
+      cardNumber: this.paymentForm.get('cardNumber')?.value,
+      expiryDate: this.paymentForm.get('expiryDate')?.value,
+      cvv: this.paymentForm.get('cvv')?.value,
+      roomId: this.selectedRoom?.id
+    };
+
+    this.http.post('http://localhost:5046/api/Payment/ProcessPayment', payload)
+      .subscribe({
+        next: (response: any) => {
+          console.log('Payment response:', response);
+          alert(response.message || 'Payment successful!');
+          this.paymentModalRef?.hide();
+          if (this.selectedRoom) {
+            this.selectedRoom.isBooked = true;
+          }
+        },
+        error: (err) => {
+          console.error('Payment error:', err);
+          const errorMessage = err.error?.message || 'Payment failed.';
+          alert(errorMessage);
+        }
+      });
+  }
+}  
