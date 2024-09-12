@@ -17,7 +17,7 @@ export class UserRoomsComponent implements OnInit {
   paymentForm: FormGroup;
   modalRef?: BsModalRef;
   paymentModalRef?: BsModalRef;
-  roomsVisible: boolean = false;
+  roomsVisible: boolean = true;
 
   // Define imageList and currentImageIndex
   imageList: string[] = [];

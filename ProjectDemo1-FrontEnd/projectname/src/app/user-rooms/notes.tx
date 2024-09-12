@@ -902,3 +902,28 @@ export class UserRoomsComponent implements OnInit {
       });
   }
 }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-content {
+  height: auto !important; /* Reduce height according to content */
+  width: auto !important; /* Adjust width as per content */
+}
+
+
+
+.modal-content {
+  height: auto !important; /* Adjust height according to content */
+  width: auto !important; /* Adjust width as per content */
+}

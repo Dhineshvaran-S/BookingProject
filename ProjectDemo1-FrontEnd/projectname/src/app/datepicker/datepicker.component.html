@@ -8,7 +8,7 @@
         <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
       </select>
     </div>
-
+ 
     <div class="form-group">
       <label for="startdate">Start:</label>
       <input id="startdate" type="date" [(ngModel)]="newDatePicker.startdate" [min]="today" (change)="updateMinEndDate()" />

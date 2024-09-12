@@ -3,7 +3,7 @@
   <app-datepicker (applyDateRangeEvent)="handleApplyDateRange($event)"></app-datepicker>
 </div>
 
-<!-- Display Loading or Error Message -->
+<!-- Display Loading or Error Message --> 
 <div *ngIf="loading" class="text-center">Loading...</div>
 <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
 

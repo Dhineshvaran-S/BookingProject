@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240910063110_migrates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProjectDemo1\\Migrations\\20240910063110_migrates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|c:\\dhineshvaran\\tasks\\changepond-training-task\\room_booking_system\\projectdemo\\projectdemo1-backend\\projectdemo1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|solutionrelative:projectdemo1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240912125928_migrationing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProjectDemo1\\Migrations\\20240912125928_migrationing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|c:\\dhineshvaran\\tasks\\changepond-training-task\\room_booking_system\\projectdemo\\projectdemo1-backend\\projectdemo1\\migrations\\20240912055034_migrat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|solutionrelative:projectdemo1\\migrations\\20240912055034_migrat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|c:\\dhineshvaran\\tasks\\changepond-training-task\\room_booking_system\\projectdemo\\projectdemo1-backend\\projectdemo1\\migrations\\20240910063110_migrates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|solutionrelative:projectdemo1\\migrations\\20240910063110_migrates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91B095CF-6252-4FB7-BB21-E468C3C0B20C}|ProjectDemo1\\ProjectDemo1.csproj|c:\\dhineshvaran\\tasks\\changepond-training-task\\room_booking_system\\projectdemo\\projectdemo1-backend\\projectdemo1\\migrations\\20240910052208_migra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,24 +58,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240910063110_migrates.cs",
-              "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
-              "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
-              "ToolTip": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
-              "RelativeToolTip": "ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
+              "DocumentIndex": 1,
+              "Title": "20240912125928_migrationing.cs",
+              "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240912125928_migrationing.cs",
+              "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240912125928_migrationing.cs",
+              "ToolTip": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240912125928_migrationing.cs",
+              "RelativeToolTip": "ProjectDemo1\\Migrations\\20240912125928_migrationing.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T06:31:12.509Z",
+              "WhenOpened": "2024-09-12T12:59:29.953Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "20240912055034_migrat.cs",
+              "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240912055034_migrat.cs",
+              "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240912055034_migrat.cs",
+              "ToolTip": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240912055034_migrat.cs",
+              "RelativeToolTip": "ProjectDemo1\\Migrations\\20240912055034_migrat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T05:50:36.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20240910063110_migrates.cs",
+              "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
+              "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
+              "ToolTip": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
+              "RelativeToolTip": "ProjectDemo1\\Migrations\\20240910063110_migrates.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T06:31:12.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "20240910052208_migra.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240910052208_migra.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240910052208_migra.cs",
@@ -75,12 +108,11 @@
               "RelativeToolTip": "ProjectDemo1\\Migrations\\20240910052208_migra.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T05:22:09.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T05:22:09.108Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DatePickerController.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Controllers\\DatePickerController.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Controllers\\DatePickerController.cs",
@@ -92,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Controllers\\AdminController.cs",
@@ -104,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "20240909192158_migrating.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240909192158_migrating.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240909192158_migrating.cs",
@@ -116,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ProjectDbContext.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Models\\ProjectDbContext.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Models\\ProjectDbContext.cs",
@@ -128,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "DatePicker.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Models\\DatePicker.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Models\\DatePicker.cs",
@@ -140,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "20240909175253_MigratE.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240909175253_MigratE.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240909175253_MigratE.cs",
@@ -152,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "20240909175224_MigrationName.cs",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\Migrations\\20240909175224_MigrationName.cs",
               "RelativeDocumentMoniker": "ProjectDemo1\\Migrations\\20240909175224_MigrationName.cs",
@@ -164,13 +196,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\appsettings.json",
               "RelativeDocumentMoniker": "ProjectDemo1\\appsettings.json",
-              "ToolTip": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\appsettings.json",
-              "RelativeToolTip": "ProjectDemo1\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAADoAAAAAAAAAA==",
+              "ToolTip": "C:\\Dhineshvaran\\TASKS\\ChangePond-Training-Task\\Room_Booking_System\\ProjectDemo\\ProjectDemo1-BackEnd\\ProjectDemo1\\appsettings.json*",
+              "RelativeToolTip": "ProjectDemo1\\appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAADnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-09-09T17:45:20.171Z",
               "EditorCaption": ""
